@@ -10,18 +10,7 @@
   <title>URL🐨Shortener V2.1</title>
   <script src="https://apis.google.com/js/client.js"> </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-//var url = window.location.href;
-if(url.indexOf("?") == -1){
-  $(document).ready(function(){
-        $("#body").load("home.html");
-  });
-} else {
-  $(document).ready(function(){
-        $("#body").load("go.html");
-  });
-}
-</script>
+
 
   <!-- Material Design fonts -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
