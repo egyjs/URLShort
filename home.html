@@ -1,0 +1,119 @@
+
+<div style="text-align:center;">
+    <h1><span>URL🐨Shortener<i> V2</i></span></h1>
+</div>
+<script type="text/javascript">
+var url = window.location.href;
+function makeShort()
+{
+   var longUrl  =  document.getElementById("longurl").value;
+    var request = gapi.client.urlshortener.url.insert({
+    'resource': {
+      'longUrl': longUrl
+ }
+    });
+    request.execute(function(response)
+ {
+
+  if(response.id != null)
+  {
+   var uri = response.id;
+   var lastslash = uri.lastIndexOf('/');
+   var result= uri.substring(lastslash + 1);
+
+
+   str ="✔️<b>Long URL:</b>"+longUrl+"<br>";
+   str +="✔️<b>Short URL:</b> <a href='"+url+"?"+result+"'>"+url.replace(/https?:\/\//i, "")+"?"+result+"</a><br>";
+   document.getElementById("output").innerHTML = str;
+  }
+  else
+  {
+   alert("error: creating short url");
+  }
+
+    });
+ }
+function load()
+{
+ gapi.client.setApiKey('AIzaSyDs1wNY_9R_8insio4ZMZvlGQEWoqPSQ4w'); //get your ownn Browser API KEY
+ gapi.client.load('urlshortener', 'v1',function(){});
+
+}
+window.onload = load;
+
+</script>
+
+<div dir="ltr" style="text-align: left;" trbidi="of">
+<style>
+.cont {
+    width: 495px;
+    margin-bottom: 200px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    margin: 37px auto;
+}
+
+    .m-input {
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+
+
+.input-box {
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    width: 350px;
+    float: left;
+    margin: 0 9px 0 0;
+    height: 40px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+    .input-box input {
+      box-sizing: border-box;
+      width: 350px;
+      float: right;
+      background-color: transparent;
+      border: 0px;
+      padding: 10px;
+      font-size: 14px;
+      position: relative;
+      outline: 0px;
+    }
+
+    .btn {
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 18px;
+      text-decoration: none;
+      color: #fff;
+      position: relative;
+      display: inline-block;
+      background-color: #00BCD4;
+      box-shadow: 0px 5px 0px 0px #0095a8;
+      cursor: pointer;
+    }
+
+    .btn:active {
+      transform: translate(0px, 5px);
+      -webkit-transform: translate(0px, 5px);
+      box-shadow: 0px 1px 0px 0px;
+    }
+
+
+</style>
+    <br />
+<div class="cont">
+      <div class="m-input">
+        <div class="input-box">
+          <input  id="longurl" name="url"  placeholder="✒️ Please input URL">
+        </div>
+<a onclick="makeShort();" class="btn" href="javascript:void(0);"   > 🚀Shorten! </a>
+      </div>
+<div id="output"><b>Long URL:</b>none<br><b>Short URL:</b> <a href="javascript:void(0);">none</a><br></div>
+</div>
+</div>

@@ -1,0 +1,77 @@
+<script>
+var url = window.location.href;
+var hash= " ";
+if(url.indexOf("?") != -1){
+    hash = url.substring(url.indexOf('?')+1);
+
+if(hash != ""){
+(function(){
+  var counter = 7;
+
+  setInterval(function() {
+    counter--;
+    if (counter >= 0) {
+      span = document.getElementById("count");
+      span.innerHTML = counter;
+    }
+    // Display 'counter' wherever you want to display it.
+    if (counter === 0) {
+        document.getElementById("goto").href = "https://goo.gl/"+hash;
+        clearInterval(counter);
+    }
+
+  }, 1000);
+
+})();
+}else{
+//window.location.href = "../";
+
+
+}
+
+}else{
+//window.location.href = "../";
+}
+
+
+</script>
+
+
+<div style="text-align: center;">
+<style>
+.btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.btn1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+.btn1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+<a  class="btn btn1" href="javascript:void(0);" id="goto">skip ad after (<span id="count">7</span>) seconds...</a>
+
+<br>
+<br>
+
+<img src="https://potomaclocal.com/media-kit/images/full_banner.jpg" alt="ads">
+<img src="https://potomaclocal.com/media-kit/images/full_banner.jpg" alt="ads">
+
+
+
+</div>
