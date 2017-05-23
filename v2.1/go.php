@@ -1,5 +1,15 @@
+<?php
+if (substr($Info['url'], -1) == "/") {
+    header('Location: https://goo.gl/'.trim(substr($Info['url'], strrpos($Info['url'], '?') + 1), '/'));
+}
+
+?>
+<!-- Popunder -->
+<script data-cfasync='false' type='text/javascript'src='//p220146.clksite.com/adServe/banners?tid=220146_413113_9&tagid=2'></script>
+
 <script>
 var url = window.location.href;
+
 var hash= " ";
 if(url.indexOf("?") != -1){
     hash = url.substring(url.indexOf('?')+1);
@@ -35,10 +45,12 @@ if(hash != ""){
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button-->
-      <a class="navbar-brand" >URL🐨Shortener V2.1</a>
+      <a href="../" style="zoom: 1.5;" class="navbar-brand" >URL🐨Shortener V2.1</a>
+      <a href="http://www.revenuehits.com/lps/pubref/?ref=@RH@gf1vvTTO0VskYGrVMt5ZfuiYnnC3Du8g" target="_blank">
+          <img class="img-responsive" src="http://revenuehits.com/publishers/media/img/v5/728x90_v5.jpg" border="0" style="display: inline-table;"></a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="javascript:void(0)" class="btn btn-raised btn-success btn-sm" id="goto">skip ad after (<span style="fon" id="count">7</span>) seconds...</a></li>
+      <li><a target="_blank" href="javascript:void(0)" class="btn btn-raised btn-success btn-sm" id="goto">skip ad after (<span style="fon" id="count">7</span>) seconds...</a></li>
     </ul>
   </div>
 </div>
